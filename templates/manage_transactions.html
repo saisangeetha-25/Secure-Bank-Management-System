@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <title>Manage Transactions</title>
+
+    <style>
+
+        *{
+            margin:0;
+            padding:0;
+            box-sizing:border-box;
+            font-family:Segoe UI, sans-serif;
+        }
+
+        body{
+            background:#f4f7fb;
+        }
+
+        .navbar{
+            background:#0A3D62;
+            color:white;
+            padding:20px;
+            text-align:center;
+        }
+
+        .container{
+            width:95%;
+            margin:30px auto;
+        }
+
+        h2{
+            text-align:center;
+            color:white;
+            margin-bottom:20px;
+        }
+
+        table{
+            width:100%;
+            border-collapse:collapse;
+            background:white;
+            box-shadow:0 4px 10px rgba(0,0,0,0.1);
+        }
+
+        th{
+            background:#0A3D62;
+            color:white;
+            padding:15px;
+        }
+
+        td{
+            padding:12px;
+            text-align:center;
+            border-bottom:1px solid #ddd;
+        }
+
+        tr:hover{
+            background:#f1f5f9;
+        }
+
+        .back{
+            text-align:center;
+            margin-top:25px;
+        }
+
+        .back a{
+            text-decoration:none;
+            background:#0A3D62;
+            color:white;
+            padding:12px 25px;
+            border-radius:8px;
+            font-weight:bold;
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+<div class="navbar">
+    <h2>🏦 Secure Bank - Manage Transactions</h2>
+</div>
+
+<div class="container">
+
+    <h2>Transaction Records</h2>
+
+    <table>
+
+        <tr>
+            <th>ID</th>
+            <th>Account ID</th>
+            <th>Type</th>
+            <th>Amount</th>
+            <th>Description</th>
+            <th>Balance After</th>
+            <th>Date</th>
+        </tr>
+
+        {% for t in transactions %}
+
+        <tr>
+            <td>{{ t['transaction_id'] }}</td>
+            <td>{{ t['account_id'] }}</td>
+            <td>{{ t['transaction_type'] }}</td>
+            <td>₹{{ t['amount'] }}</td>
+            <td>{{ t['description'] }}</td>
+            <td>₹{{ t['balance_after'] }}</td>
+            <td>{{ t['transaction_date'] }}</td>
+        </tr>
+
+        {% endfor %}
+
+    </table>
+
+    <div class="back">
+        <a href="/admin-dashboard">
+            Back To Dashboard
+        </a>
+    </div>
+
+</div>
+
+</body>
+</html>

@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <title>Deposit Money</title>
+
+    <style>
+
+        body{
+            font-family:Segoe UI, sans-serif;
+            background:#f4f7fb;
+            margin:0;
+            padding:0;
+        }
+
+        .container{
+            width:450px;
+            margin:60px auto;
+        }
+
+        .card{
+            background:white;
+            padding:30px;
+            border-radius:12px;
+            box-shadow:0 4px 12px rgba(0,0,0,0.1);
+        }
+
+        h2{
+            text-align:center;
+            color:#0A3D62;
+            margin-bottom:25px;
+        }
+
+        .flash{
+            background:#d4edda;
+            color:#155724;
+            padding:10px;
+            border-radius:8px;
+            margin-bottom:15px;
+            text-align:center;
+        }
+
+        label{
+            display:block;
+            margin-top:15px;
+            margin-bottom:8px;
+            font-weight:bold;
+        }
+
+        select,
+        input{
+            width:100%;
+            padding:12px;
+            border:1px solid #ccc;
+            border-radius:8px;
+            font-size:15px;
+            box-sizing:border-box;
+        }
+
+        .deposit-btn{
+            width:100%;
+            margin-top:25px;
+            padding:12px;
+            border:none;
+            background:#0A3D62;
+            color:white;
+            font-size:16px;
+            font-weight:bold;
+            border-radius:8px;
+            cursor:pointer;
+        }
+
+        .deposit-btn:hover{
+            background:#07406b;
+        }
+
+        .back-section{
+            text-align:center;
+            margin-top:25px;
+        }
+
+        .back-btn{
+            background:#dc3545;
+            color:white;
+            text-decoration:none;
+            padding:12px 20px;
+            border-radius:8px;
+            font-weight:bold;
+            display:inline-block;
+        }
+
+        .back-btn:hover{
+            background:#bb2d3b;
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+<div class="container">
+
+    <div class="card">
+
+        <h2>🏦 Deposit Money</h2>
+
+        {% with messages = get_flashed_messages() %}
+        {% if messages %}
+            {% for message in messages %}
+                <div class="flash">
+                    {{ message }}
+                </div>
+            {% endfor %}
+        {% endif %}
+        {% endwith %}
+
+        <form method="POST">
+
+            <label>Select Account</label>
+
+            <select name="account_id" required>
+
+                {% for account in accounts %}
+
+                <option value="{{ account['account_id'] }}">
+                    {{ account['account_number'] }}
+                    ({{ account['account_type'] }})
+                    ₹{{ account['balance'] }}
+                </option>
+
+                {% endfor %}
+
+            </select>
+
+            <label>Amount</label>
+
+            <input
+                type="number"
+                name="amount"
+                min="1"
+                required>
+
+            <label>Description</label>
+
+            <input
+                type="text"
+                name="description"
+                placeholder="Enter description">
+
+            <button type="submit" class="deposit-btn">
+                Deposit Money
+            </button>
+
+        </form>
+
+    </div>
+
+    <div class="back-section">
+
+        <a href="/dashboard" class="back-btn">
+            ← Back To Dashboard
+        </a>
+
+    </div>
+
+</div>
+
+</body>
+
+</html>

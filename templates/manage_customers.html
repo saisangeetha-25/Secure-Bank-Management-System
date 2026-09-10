@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <title>Manage Customers</title>
+
+    <style>
+
+        *{
+            margin:0;
+            padding:0;
+            box-sizing:border-box;
+            font-family:Segoe UI, sans-serif;
+        }
+
+        body{
+            background:#f4f7fb;
+        }
+
+        .navbar{
+            background:#0A3D62;
+            color:white;
+            text-align:center;
+            padding:20px;
+        }
+
+        .container{
+            width:90%;
+            margin:30px auto;
+        }
+
+        .heading{
+            text-align:center;
+            margin-bottom:25px;
+        }
+
+        .heading h2{
+            color:#0A3D62;
+        }
+
+        table{
+            width:100%;
+            border-collapse:collapse;
+            background:white;
+
+            box-shadow:0 4px 12px rgba(0,0,0,0.1);
+            border-radius:10px;
+            overflow:hidden;
+        }
+
+        th{
+            background:#0A3D62;
+            color:white;
+            padding:15px;
+        }
+
+        td{
+            padding:15px;
+            text-align:center;
+            border-bottom:1px solid #ddd;
+        }
+
+        tr:hover{
+            background:#f1f5f9;
+        }
+
+        .back{
+            text-align:center;
+            margin-top:25px;
+        }
+
+        .back a{
+            text-decoration:none;
+            background:#0A3D62;
+            color:white;
+            padding:12px 25px;
+            border-radius:8px;
+            font-weight:bold;
+        }
+
+        .back a:hover{
+            background:#07406b;
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+<div class="navbar">
+    <h2>🏦 Secure Bank - Manage Customers</h2>
+</div>
+
+<div class="container">
+
+    <div class="heading">
+        <h2>Customer Records</h2>
+    </div>
+
+    <table>
+
+        <tr>
+            <th>ID</th>
+            <th>Full Name</th>
+            <th>Email</th>
+            <th>Phone</th>
+        </tr>
+
+        {% for customer in customers %}
+
+        <tr>
+            <td>{{ customer['id'] }}</td>
+            <td>
+                <a href="/customer/{{ customer['id'] }}"
+                style="text-decoration:none; color:#0D6EFD; font-weight:bold;">
+                {{ customer['full_name'] }}
+                </a>
+            </td>
+            <td>{{ customer['email'] }}</td>
+            <td>{{ customer['phone'] }}</td>
+        </tr>
+
+        {% endfor %}
+
+    </table>
+
+    <div class="back">
+        <a href="/admin-dashboard">
+            Back To Dashboard
+        </a>
+    </div>
+
+</div>
+
+</body>
+</html>

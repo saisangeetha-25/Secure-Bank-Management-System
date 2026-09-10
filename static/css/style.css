@@ -1,0 +1,139 @@
+body{
+    font-family: 'Poppins', Arial, sans-serif;
+    background: #f4f7fc;
+    margin: 0;
+    padding: 0;
+}
+
+.navbar a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    padding: 8px 15px;
+}
+
+/* Default active page style */
+.navbar a.active {
+    background-color: white;
+    color: #0b3d91;
+    border-radius: 5px;
+}
+
+
+.navbar{
+    background:#0A3D62;
+    color:white;
+
+    padding:15px 30px;
+
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+
+    box-shadow:0 3px 10px rgba(0,0,0,0.15);
+}
+
+.nav-links a{
+    background:white;
+    color:#0A3D62;
+
+    text-decoration:none;
+    font-weight:bold;
+
+    padding:10px 18px;
+    border-radius:25px;
+
+    transition:0.3s;
+}
+
+.nav-links a:hover{
+    background:#e9ecef;
+    transform:translateY(-2px);
+}
+
+/* NAVBAR STYLE */
+.navbar{
+    background: #0A3D62;
+    padding: 15px;
+    color: white;
+}
+
+.container{
+    width: 805;
+    margin: 30px auto;
+    padding: 20px 30px;
+    line-height: 1.6;
+}
+
+/* BUTTON STYLE */
+.btn-bank{
+    background: #0D6EFD;
+    color: white;
+    padding: 12px;
+    border-radius: 10px;
+    text-decoration: none;
+    display: inline-block;
+    text-align: center;
+}
+
+.btn-bank:hover{
+    background: #084298;
+}
+
+/* CARD STYLE */
+.card-box{
+    background: white;
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+    margin: 10px 0;
+}
+
+.summary-card{
+    display:flex;
+    justify-content:space-around;
+    align-items:center;
+
+    background:white;
+
+    padding:25px;
+    border-radius:12px;
+
+    margin:20px auto;
+
+    box-shadow:0 4px 12px rgba(0,0,0,0.1);
+}
+
+.summary-item{
+    text-align:center;
+}
+
+.summary-item h4{
+    color:#666;
+    margin-bottom:10px;
+}
+
+.summary-item h2{
+    color:#0A3D62;
+}
+
+
+/* TABLE STYLE */
+table{
+    width: 90%;
+    margin: auto;
+    border-collapse: collapse;
+    background: white;
+}
+
+th{
+    background: #0A3D62;
+    color: white;
+    padding: 12px;
+}
+
+td{
+    padding: 10px;
+    border: 1px solid #ddd;
+    text-align: center;
+}

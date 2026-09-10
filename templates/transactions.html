@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <title>Transaction History</title>
+
+    <style>
+
+        body{
+            font-family:Segoe UI, sans-serif;
+            background:#f4f7fb;
+            margin:0;
+            padding:0;
+        }
+
+        .container{
+            width:90%;
+            margin:40px auto;
+        }
+
+        .card{
+            background:white;
+            padding:25px;
+            border-radius:12px;
+            box-shadow:0 4px 12px rgba(0,0,0,0.1);
+        }
+
+        h2{
+            text-align:center;
+            color:#0A3D62;
+            margin-bottom:25px;
+        }
+
+        .download-section{
+            text-align:center;
+            margin-bottom:25px;
+        }
+
+        .download-btn{
+            background:#0A3D62;
+            color:white;
+            text-decoration:none;
+            padding:12px 18px;
+            border-radius:8px;
+            font-weight:bold;
+            margin:0 8px;
+            display:inline-block;
+        }
+
+        .download-btn:hover{
+            background:#07406b;
+        }
+
+        table{
+            width:100%;
+            border-collapse:collapse;
+        }
+
+        th{
+            background:#0A3D62;
+            color:white;
+            padding:14px;
+        }
+
+        td{
+            padding:12px;
+            text-align:center;
+            border-bottom:1px solid #ddd;
+        }
+
+        tr:hover{
+            background:#f8f9fa;
+        }
+
+        .no-data{
+            text-align:center;
+            padding:20px;
+            color:#666;
+            font-size:18px;
+        }
+
+        .back-section{
+            text-align:center;
+            margin-top:25px;
+        }
+
+        .back-btn{
+            background:#dc3545;
+            color:white;
+            text-decoration:none;
+            padding:12px 20px;
+            border-radius:8px;
+            font-weight:bold;
+            display:inline-block;
+        }
+
+        .back-btn:hover{
+            background:#bb2d3b;
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+<div class="container">
+
+    <div class="card">
+
+        <h2>📊 Transaction History</h2>
+
+        <div class="download-section">
+
+            <a href="/download-txt" class="download-btn">
+                📄 Download TXT
+            </a>
+
+            <a href="/download-pdf" class="download-btn">
+                📕 Download PDF
+            </a>
+
+            <a href="/download-docx" class="download-btn">
+                📝 Download Word
+            </a>
+
+        </div>
+
+        {% if transactions %}
+
+        <table>
+
+            <tr>
+                <th>Date</th>
+                <th>Type</th>
+                <th>Amount</th>
+                <th>Description</th>
+                <th>Balance After</th>
+            </tr>
+
+            {% for t in transactions %}
+
+            <tr>
+                <td>{{ t['transaction_date'] }}</td>
+                <td>{{ t['transaction_type'] }}</td>
+                <td>₹{{ t['amount'] }}</td>
+                <td>{{ t['description'] }}</td>
+                <td>₹{{ t['balance_after'] }}</td>
+            </tr>
+
+            {% endfor %}
+
+        </table>
+
+        {% else %}
+
+        <div class="no-data">
+            No Transactions Found
+        </div>
+
+        {% endif %}
+
+    </div>
+
+    <div class="back-section">
+
+        <a href="/dashboard" class="back-btn">
+            ← Back To Dashboard
+        </a>
+
+    </div>
+
+</div>
+
+</body>
+
+</html>

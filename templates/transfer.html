@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <title>Transfer Money</title>
+
+    <style>
+
+        body{
+            font-family:Segoe UI, sans-serif;
+            background:#f4f7fb;
+            margin:0;
+            padding:0;
+        }
+
+        .container{
+            width:500px;
+            margin:60px auto;
+        }
+
+        .card{
+            background:white;
+            padding:30px;
+            border-radius:12px;
+            box-shadow:0 4px 12px rgba(0,0,0,0.1);
+        }
+
+        h2{
+            text-align:center;
+            color:#0A3D62;
+            margin-bottom:25px;
+        }
+
+        .flash{
+            background:#d4edda;
+            color:#155724;
+            padding:10px;
+            border-radius:8px;
+            margin-bottom:15px;
+            text-align:center;
+        }
+
+        label{
+            display:block;
+            margin-top:15px;
+            margin-bottom:8px;
+            font-weight:bold;
+        }
+
+        select,
+        input{
+            width:100%;
+            padding:12px;
+            border:1px solid #ccc;
+            border-radius:8px;
+            font-size:15px;
+            box-sizing:border-box;
+        }
+
+        .transfer-btn{
+            width:100%;
+            margin-top:25px;
+            padding:12px;
+            border:none;
+            background:#0A3D62;
+            color:white;
+            font-size:16px;
+            font-weight:bold;
+            border-radius:8px;
+            cursor:pointer;
+        }
+
+        .transfer-btn:hover{
+            background:#07406b;
+        }
+
+        .back-section{
+            text-align:center;
+            margin-top:25px;
+        }
+
+        .back-btn{
+            background:#dc3545;
+            color:white;
+            text-decoration:none;
+            padding:12px 20px;
+            border-radius:8px;
+            font-weight:bold;
+            display:inline-block;
+        }
+
+        .back-btn:hover{
+            background:#bb2d3b;
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+<div class="container">
+
+    <div class="card">
+
+        <h2>🔁 Transfer Money</h2>
+
+        {% with messages = get_flashed_messages() %}
+        {% if messages %}
+            {% for message in messages %}
+                <div class="flash">
+                    {{ message }}
+                </div>
+            {% endfor %}
+        {% endif %}
+        {% endwith %}
+
+        <form method="POST">
+
+            <label>From Account</label>
+
+            <select name="from_account" required>
+
+                {% for account in accounts %}
+
+                <option value="{{ account['account_id'] }}">
+                    {{ account['account_number'] }}
+                    ({{ account['account_type'] }})
+                    ₹{{ account['balance'] }}
+                </option>
+
+                {% endfor %}
+
+            </select>
+
+            <label>To Account Number</label>
+
+            <input
+                type="text"
+                name="to_account_number"
+                placeholder="Enter receiver account number"
+                required>
+
+            <label>Amount</label>
+
+            <input
+                type="number"
+                name="amount"
+                min="1"
+                required>
+
+            <button type="submit" class="transfer-btn">
+                Transfer Money
+            </button>
+
+        </form>
+
+    </div>
+
+    <div class="back-section">
+
+        <a href="/dashboard" class="back-btn">
+            ← Back To Dashboard
+        </a>
+
+    </div>
+
+</div>
+
+</body>
+
+</html>

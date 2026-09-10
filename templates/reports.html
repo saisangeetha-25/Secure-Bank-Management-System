@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+<title>Reports</title>
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Segoe UI,sans-serif;
+}
+
+body{
+    background:#f4f7fb;
+}
+
+.navbar{
+    background:#0A3D62;
+    color:white;
+    text-align:center;
+    padding:20px;
+}
+
+.container{
+    width:90%;
+    margin:30px auto;
+}
+
+.cards{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:20px;
+}
+
+.card{
+
+    background:white;
+
+    padding:25px;
+
+    text-align:center;
+
+    border-radius:12px;
+
+    box-shadow:0 4px 12px rgba(0,0,0,0.1);
+}
+
+.card h3{
+    color:#555;
+    margin-bottom:10px;
+}
+
+.card h2{
+    color:#0A3D62;
+}
+
+.back{
+
+    text-align:center;
+
+    margin-top:40px;
+}
+
+.back a{
+
+    text-decoration:none;
+
+    background:#0A3D62;
+
+    color:white;
+
+    padding:12px 25px;
+
+    border-radius:8px;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="navbar">
+    <h2>📊 Secure Bank Reports</h2>
+</div>
+
+<div class="container">
+
+    <div class="cards">
+
+        <div class="card">
+            <h3>Total Customers</h3>
+            <h2>{{ total_customers }}</h2>
+        </div>
+
+        <div class="card">
+            <h3>Total Accounts</h3>
+            <h2>{{ total_accounts }}</h2>
+        </div>
+
+        <div class="card">
+            <h3>Total Transactions</h3>
+            <h2>{{ total_transactions }}</h2>
+        </div>
+
+        <div class="card">
+            <h3>Total Deposits</h3>
+            <h2>₹{{ total_deposits }}</h2>
+        </div>
+
+        <div class="card">
+            <h3>Total Withdrawals</h3>
+            <h2>₹{{ total_withdrawals }}</h2>
+        </div>
+
+        <div class="card">
+            <h3>Total Transfers</h3>
+            <h2>₹{{ total_transfers }}</h2>
+        </div>
+
+    </div>
+
+    <div class="back">
+        <a href="/admin-dashboard">
+            Back To Dashboard
+        </a>
+    </div>
+
+</div>
+
+</body>
+</html>

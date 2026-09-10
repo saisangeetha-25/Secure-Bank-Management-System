@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <title>Customer Details</title>
+
+    <style>
+
+        *{
+            margin:0;
+            padding:0;
+            box-sizing:border-box;
+            font-family:Segoe UI,sans-serif;
+        }
+
+        body{
+            background:#f4f7fb;
+        }
+
+        .navbar{
+            background:#0A3D62;
+            color:white;
+            text-align:center;
+            padding:20px;
+        }
+
+        .container{
+            width:90%;
+            margin:30px auto;
+        }
+
+        .card{
+            background:white;
+            padding:25px;
+            border-radius:15px;
+            margin-bottom:25px;
+            box-shadow:0 4px 12px rgba(0,0,0,0.1);
+        }
+
+        h2{
+            color:white;
+            margin-bottom:15px;
+        }
+
+        table{
+            width:100%;
+            border-collapse:collapse;
+        }
+
+        th{
+            background:#0A3D62;
+            color:white;
+            padding:12px;
+        }
+
+        td{
+            padding:12px;
+            text-align:center;
+            border-bottom:1px solid #ddd;
+        }
+
+        .back{
+            text-align:center;
+            margin-top:20px;
+        }
+
+        .back a{
+            background:#dc3545;
+            color:white;
+            text-decoration:none;
+            padding:12px 25px;
+            border-radius:8px;
+            font-weight:bold;
+        }
+
+        .back a:hover{
+            background:#bb2d3b;
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+<div class="navbar">
+    <h2>👤 Customer Profile</h2>
+</div>
+
+<div class="container">
+
+    <div class="card">
+
+        <h2>Personal Information</h2>
+
+        <p><strong>Name:</strong> {{ customer['full_name'] }}</p>
+        <br>
+
+        <p><strong>Email:</strong> {{ customer['email'] }}</p>
+        <br>
+
+        <p><strong>Phone:</strong> {{ customer['phone'] }}</p>
+
+    </div>
+
+    <div class="card">
+
+        <h2>Account Summary</h2>
+
+        <p><strong>Total Accounts:</strong> {{ accounts|length }}</p>
+        <br>
+
+        <p><strong>Total Balance:</strong> ₹{{ total_balance }}</p>
+
+    </div>
+
+    <div class="card">
+
+        <h2>Customer Accounts</h2>
+
+        <table>
+
+            <tr>
+                <th>Account Number</th>
+                <th>Type</th>
+                <th>Balance</th>
+                <th>Status</th>
+            </tr>
+
+            {% for account in accounts %}
+
+            <tr>
+                <td>{{ account['account_number'] }}</td>
+                <td>{{ account['account_type'] }}</td>
+                <td>₹{{ account['balance'] }}</td>
+                <td>{{ account['status'] }}</td>
+            </tr>
+
+            {% endfor %}
+
+        </table>
+
+    </div>
+
+    <div class="back">
+        <a href="/manage-customers">
+            ← Back To Customers
+        </a>
+    </div>
+
+</div>
+
+</body>
+
+</html>

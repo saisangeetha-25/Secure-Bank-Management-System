@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <title>My Profile</title>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+
+    <style>
+
+        .profile-container{
+            width:60%;
+            margin:40px auto;
+        }
+
+        .profile-card{
+            background:white;
+            padding:30px;
+            border-radius:15px;
+            box-shadow:0 4px 12px rgba(0,0,0,0.1);
+        }
+
+        .profile-title{
+            text-align:center;
+            color:#0A3D62;
+            margin-bottom:25px;
+        }
+
+        .profile-row{
+            margin-bottom:20px;
+        }
+
+        .label{
+            font-weight:bold;
+            color:#555;
+            font-size:15px;
+        }
+
+        .value{
+            margin-top:5px;
+            font-size:18px;
+            color:#0A3D62;
+        }
+
+        .back-btn{
+            display:block;
+            width:220px;
+            margin:25px auto;
+            text-align:center;
+
+            background:#dc3545;
+            color:white;
+
+            padding:12px;
+            border-radius:10px;
+
+            text-decoration:none;
+            font-weight:bold;
+        }
+
+        .back-btn:hover{
+            background:#bb2d3b;
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+    <div class="navbar">
+        <h2>🏦 Secure Bank</h2>
+    </div>
+
+    <div class="profile-container">
+
+        <div class="profile-card">
+
+            <h2 class="profile-title">
+                👤 My Profile
+            </h2>
+
+            <div class="profile-row">
+                <div class="label">Full Name</div>
+                <div class="value">{{ user['full_name'] }}</div>
+            </div>
+
+            <div class="profile-row">
+                <div class="label">Email Address</div>
+                <div class="value">{{ user['email'] }}</div>
+            </div>
+
+            <div class="profile-row">
+                <div class="label">Phone Number</div>
+                <div class="value">{{ user['phone'] }}</div>
+            </div>
+
+            <div class="profile-row">
+                <div class="label">Customer ID</div>
+                <div class="value">{{ user['id'] }}</div>
+            </div>
+
+        </div>
+
+        <a href="/dashboard" class="back-btn">
+            ⬅ Back To Dashboard
+        </a>
+
+    </div>
+
+</body>
+
+</html>
+

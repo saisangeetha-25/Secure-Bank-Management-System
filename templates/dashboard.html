@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Dashboard</title>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+
+</head>
+
+<body>
+
+    <!-- NAVBAR -->
+    <div class="navbar">
+
+        <h2>🏦 Secure Bank Dashboard</h2>
+
+        <div class="nav-links">
+            <a href="/profile">👤 {{ name }}</a>
+        </div>
+
+    </div>
+
+    <!-- WELCOME CARD -->
+    <div class="card-box">
+        <h3>Welcome {{ name }}, to SECURE BANK 👋</h3>
+    </div>
+
+    <!-- ACCOUNT SUMMARY -->
+    <div class="summary-card">
+
+    <div class="summary-item">
+        <h4>Total Accounts</h4>
+        <h2>{{ total_accounts }}</h2>
+    </div>
+
+    <div class="summary-item">
+        <h4>Total Balance</h4>
+        <h2>₹{{ total_balance }}</h2>
+    </div>
+
+</div>
+
+    <!-- DASHBOARD ACTIONS -->
+    <div class="card-box" style="text-align:center;">
+
+        <div style="display:grid; grid-template-columns: repeat(3, 1fr); gap:20px;">
+
+            <a href="/create-account" class="btn-bank">
+                ➕ Create Account
+            </a>
+
+            <a href="/accounts" class="btn-bank">
+                🏦 View Accounts
+            </a>
+
+            <a href="/deposit" class="btn-bank">
+                💰 Deposit
+            </a>
+
+            <a href="/withdraw" class="btn-bank">
+                💸 Withdraw
+            </a>
+
+            <a href="/transfer" class="btn-bank">
+                🔁 Transfer
+            </a>
+
+            <a href="/transactions" class="btn-bank">
+                📊 Transaction History
+            </a>
+
+        </div>
+
+        <br><br>
+
+        <a href="/logout"
+           class="btn-bank"
+           style="background:#dc3545; display:inline-block;">
+            🚪 Logout
+        </a>
+
+    </div>
+
+    
+
+</body>
+
+</html>

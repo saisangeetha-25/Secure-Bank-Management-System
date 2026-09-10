@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <title>Create Account</title>
+
+    <style>
+
+        body{
+            font-family:Segoe UI, sans-serif;
+            background:#f4f7fb;
+            margin:0;
+            padding:0;
+        }
+
+        .container{
+            width:450px;
+            margin:60px auto;
+        }
+
+        .card{
+            background:white;
+            padding:30px;
+            border-radius:12px;
+            box-shadow:0 4px 12px rgba(0,0,0,0.1);
+        }
+
+        h2{
+            text-align:center;
+            color:#0A3D62;
+            margin-bottom:25px;
+        }
+
+        label{
+            display:block;
+            margin-top:15px;
+            margin-bottom:8px;
+            font-weight:bold;
+        }
+
+        select{
+            width:100%;
+            padding:12px;
+            border:1px solid #ccc;
+            border-radius:8px;
+            font-size:15px;
+            box-sizing:border-box;
+        }
+
+        .create-btn{
+            width:100%;
+            margin-top:25px;
+            padding:12px;
+            border:none;
+            background:#0A3D62;
+            color:white;
+            font-size:16px;
+            font-weight:bold;
+            border-radius:8px;
+            cursor:pointer;
+        }
+
+        .create-btn:hover{
+            background:#07406b;
+        }
+
+        .back-section{
+            text-align:center;
+            margin-top:25px;
+        }
+
+        .back-btn{
+            background:#dc3545;
+            color:white;
+            text-decoration:none;
+            padding:12px 20px;
+            border-radius:8px;
+            font-weight:bold;
+            display:inline-block;
+        }
+
+        .back-btn:hover{
+            background:#bb2d3b;
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+<div class="container">
+
+    <div class="card">
+
+        <h2>🏦 Create Bank Account</h2>
+
+        <form method="POST">
+
+            <label>Select Account Type</label>
+
+            <select name="account_type" required>
+
+                <option value="Savings">
+                    Savings Account
+                </option>
+
+                <option value="Current">
+                    Current Account
+                </option>
+
+                <option value="Fixed Deposit">
+                    Fixed Deposit
+                </option>
+
+            </select>
+
+            <button type="submit" class="create-btn">
+                Create Account
+            </button>
+
+        </form>
+
+    </div>
+
+    <div class="back-section">
+
+        <a href="/dashboard" class="back-btn">
+            ← Back To Dashboard
+        </a>
+
+    </div>
+
+</div>
+
+</body>
+
+</html>
